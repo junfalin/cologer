@@ -1,2 +1,9 @@
-# colog
-color-log
+Cologer
+---
+
+安装
+---
+
+```
+pip install cologer
+```
