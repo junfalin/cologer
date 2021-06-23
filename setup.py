@@ -9,7 +9,7 @@ except Exception:
 
 setuptools.setup(
     name="cologer",
-    version="1.0",
+    version="2.0",
     author="junfalin",
     author_email="ljunf817@163.com",
     description="color-loger",

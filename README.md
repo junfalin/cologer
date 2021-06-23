@@ -7,3 +7,10 @@ Cologer
 ```
 pip install cologer
 ```
+
+demo
+---
+
+```
+python demo.py
+```

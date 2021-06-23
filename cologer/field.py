@@ -61,7 +61,6 @@ class Field:
 
 class Fields:
     def __init__(self, fmt: str, level: str) -> None:
-        self.fmt = fmt
         self.lv = level
         self.field_names = []
         self._set_field(fmt)
@@ -71,8 +70,9 @@ class Fields:
             self.field_names.append(f_n)
             setattr(self, f_n, Field(f_n, self.lv))
 
-    def _get_final_str(self, *args, **kwargs):
-        m = {}
+    def _get_color_str(self, *args, **kwargs):
+        color = {}
+        raw = {}
         for f_n in self.field_names:
             field: Field = getattr(self, f_n)
             if f_n == 'message':
@@ -80,5 +80,6 @@ class Fields:
                 value = kwargs.get(f_n, u or field.default)
             else:
                 value = kwargs.get(f_n, field.default)
-            m[f_n] = str(field).format(**{f_n: value})
-        return self.fmt.format(**m)
+            color[f_n] = str(field).format(**{f_n: value})
+            raw[f_n] = value
+        return color, raw
